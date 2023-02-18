@@ -8,5 +8,6 @@ resource "google_storage_bucket" "web-storage" {
 
 resource "google_storage_default_object_access_control" "public-rules" {
     bucket = google_storage_bucket.web-storage.name
-    role_entity = ["READER:allUsers"]
+    entity = "allUsers"
+    role = "READER"
 }

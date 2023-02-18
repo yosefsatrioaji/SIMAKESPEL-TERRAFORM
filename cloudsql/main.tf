@@ -19,7 +19,8 @@ resource "google_sql_database_instance" "master" {
     disk_autoresize   = true
 
     ip_configuration {
-      authorized_networks = {
+      authorized_networks {
+        name  = "all"
         value = "0.0.0.0/0"
       }
 
@@ -41,7 +42,7 @@ resource "google_sql_database_instance" "master" {
 
 resource "google_sql_database_instance" "replica" {
   depends_on = [
-    "google_sql_database_instance.master",
+    google_sql_database_instance.master,
   ]
 
   name                 = "metest-${terraform.workspace}-replica"

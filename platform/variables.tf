@@ -73,17 +73,6 @@ variable "sql_pass" {
 }
 
 # GKE variables
-
-variable "min_master_version" {
-  default     = "1.10.7-gke.6"
-  description = "Number of nodes in each GKE cluster zone"
-}
-
-variable "node_version" {
-  default     = "1.10.7-gke.6"
-  description = "Number of nodes in each GKE cluster zone"
-}
-
 variable "gke_num_nodes" {
   default = {
     prod = 2
@@ -93,14 +82,14 @@ variable "gke_num_nodes" {
   description = "Number of nodes in each GKE cluster zone"
 }
 
-variable "gke_master_user" {
-  default     = "k8s_admin"
-  description = "Username to authenticate with the k8s master"
-}
+# variable "gke_master_user" {
+#   default     = "k8s_admin"
+#   description = "Username to authenticate with the k8s master"
+# }
 
-variable "gke_master_pass" {
-  description = "Username to authenticate with the k8s master"
-}
+# variable "gke_master_pass" {
+#   description = "Username to authenticate with the k8s master"
+# }
 
 variable "gke_node_machine_type" {
   default     = "n1-standard-1"
@@ -114,4 +103,19 @@ variable gke_label {
   }
 
   description = "label"
+}
+
+variable "gke_node_disk_size" {
+  default     = 10
+  description = "Size of the disk attached to each node"  
+}
+
+variable "min_master_version" {
+  default     = "1.25.5-gke.2000"
+  description = "Number of nodes in each GKE cluster zone"
+}
+
+variable "node_version" {
+  default     = "1.25.5-gke.2000"
+  description = "Number of nodes in each GKE cluster zone"
 }
