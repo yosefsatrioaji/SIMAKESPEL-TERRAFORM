@@ -29,3 +29,21 @@ module "cloudsql" {
   sql_user                   = "${var.sql_user}"
   sql_pass                   = "${var.sql_pass}"
 }
+
+module "gke" {
+  source = "../gke"
+  region = "${var.region}"
+  gke_node_machine_type = "${var.gke_node_machine_type}"
+  gke_label = "${var.gke_label}"
+  # gke_master_user = "${var.gke_master_user}"
+  # gke_master_pass = "${var.gke_master_pass}"
+  node_version = "${var.node_version}"
+  min_master_version = "${var.min_master_version}"
+  subnet_name = "${module.subnet.subnet_name}"
+  gke_num_nodes = "${var.gke_num_nodes}"
+  vpc_name = "${module.vpc.vpc_name}"
+}
+
+module "gcs" {
+  source = "../gcs"
+}
