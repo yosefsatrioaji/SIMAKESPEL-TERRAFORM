@@ -7,3 +7,7 @@ variable "vpc_name" {
 variable "ip_cidr_range" {
   description = "Subnet range"
 }
+
+variable "project_id" {
+  description = "Project ID"
+}

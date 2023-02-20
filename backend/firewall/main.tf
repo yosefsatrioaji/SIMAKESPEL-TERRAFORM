@@ -1,4 +1,5 @@
 resource "google_compute_firewall" "firewalli-int" {
+  project = "${var.project_id}"
   name    = "${terraform.workspace}-firewall-int"
   network = "${var.vpc_name}"
 
@@ -19,6 +20,7 @@ resource "google_compute_firewall" "firewalli-int" {
 
 # Create a firewall rule that allows external SSH, ICMP, and HTTPS:
 resource "google_compute_firewall" "firewalli-ext" {
+  project = "${var.project_id}"
   name    = "${terraform.workspace}-firewall-ext"
   network = "${var.vpc_name}"
 

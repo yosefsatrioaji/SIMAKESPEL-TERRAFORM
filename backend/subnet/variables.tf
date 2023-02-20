@@ -12,3 +12,7 @@ variable "subnet_cidr" {
   type        = map(string)
   description = "Subnet range"
 }
+
+variable "project_id" {
+  description = "Project ID"
+}

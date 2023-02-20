@@ -1,4 +1,5 @@
 resource "google_container_cluster" "primary" {
+  project = "${var.project_id}"
   name = "gke-${terraform.workspace}-cluster"
   node_version = "${var.node_version}"
   location = "${var.region}-a"

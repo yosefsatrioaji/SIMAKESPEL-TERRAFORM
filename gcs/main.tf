@@ -1,4 +1,5 @@
 resource "google_storage_bucket" "web-storage" {
+    project = "${var.project_id}"
     name = "simakespelta-storage"
     location = "asia-southeast2"
     storage_class = "REGIONAL"

@@ -7,3 +7,7 @@ output "self_link" {
   value       = "${google_compute_network.vpc.self_link}"
   description = "The URL of the created resource"
 }
+
+variable "project_id" {
+  description = "Project ID"
+}

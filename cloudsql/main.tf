@@ -1,11 +1,10 @@
-provider "random" {}
-
 resource "random_id" "id" {
   byte_length = 4
   prefix      = "sql-${terraform.workspace}-"
 }
 
 resource "google_sql_database_instance" "master" {
+  project          = "${var.project_id}" 
 #  name             = "sql-${terraform.workspace}-master"
   name             = "${random_id.id.hex}"
   region           = "${var.region}"
@@ -65,8 +64,8 @@ resource "google_sql_database_instance" "replica" {
 
 resource "google_sql_user" "user" {
   depends_on = [
-    "google_sql_database_instance.master",
-    "google_sql_database_instance.replica",
+    google_sql_database_instance.master,
+    google_sql_database_instance.replica,
   ]
 
   instance = "${google_sql_database_instance.master.name}"

@@ -119,3 +119,8 @@ variable "node_version" {
   default     = "1.25.5-gke.2000"
   description = "Number of nodes in each GKE cluster zone"
 }
+
+variable "project_id" {
+  default = "simakespel-ta"
+  description = "The ID of the project in which the resources will be deployed"
+}
