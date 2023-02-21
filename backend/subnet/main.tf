@@ -1,9 +1,9 @@
 # Create Subnet
 
 resource "google_compute_subnetwork" "subnet" {
-  project = "${var.project_id}"
+  project       = var.project_id
   name          = "${terraform.workspace}-subnet"
-  ip_cidr_range = "${var.subnet_cidr[terraform.workspace]}"
-  network       = "${var.vpc_name}"
-  region        = "${var.region}"
+  ip_cidr_range = var.subnet_cidr[terraform.workspace]
+  network       = var.vpc_name
+  region        = var.region
 }

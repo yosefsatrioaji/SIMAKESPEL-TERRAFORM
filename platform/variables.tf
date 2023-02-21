@@ -4,7 +4,7 @@ variable "region" {
 }
 
 variable "bucket_name" {
-  default = "simakespelta-backend"
+  default     = "simakespelta-backend"
   description = "Name of the google storage bucket"
 }
 
@@ -96,7 +96,7 @@ variable "gke_node_machine_type" {
   description = "Machine type of GKE nodes"
 }
 
-variable gke_label {
+variable "gke_label" {
   default = {
     prod = "prod"
     dev  = "dev"
@@ -107,7 +107,7 @@ variable gke_label {
 
 variable "gke_node_disk_size" {
   default     = 10
-  description = "Size of the disk attached to each node"  
+  description = "Size of the disk attached to each node"
 }
 
 variable "min_master_version" {
@@ -121,6 +121,6 @@ variable "node_version" {
 }
 
 variable "project_id" {
-  default = "simakespel-ta"
+  default     = "simakespel-ta"
   description = "The ID of the project in which the resources will be deployed"
 }

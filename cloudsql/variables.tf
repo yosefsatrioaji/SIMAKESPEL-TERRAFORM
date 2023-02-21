@@ -49,3 +49,7 @@ variable "sql_pass" {
 variable "project_id" {
   description = "Project ID"
 }
+
+variable "network_id" {
+  description = "Netwrok name"
+}

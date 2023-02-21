@@ -5,6 +5,12 @@ resource "google_storage_bucket" "web-storage" {
   storage_class               = "REGIONAL"
   force_destroy               = false
   uniform_bucket_level_access = false
+  cors {
+    origin          = ["*"]
+    method          = ["GET"]
+    response_header = ["Content-Type"]
+    max_age_seconds = 3600
+  }
 }
 
 resource "google_storage_default_object_access_control" "public-rules" {
@@ -20,6 +26,12 @@ resource "google_storage_bucket" "web-static" {
   storage_class               = "REGIONAL"
   force_destroy               = false
   uniform_bucket_level_access = false
+  cors {
+    origin          = ["*"]
+    method          = ["GET"]
+    response_header = ["Content-Type"]
+    max_age_seconds = 3600
+  }
 }
 
 resource "google_storage_default_object_access_control" "public-rules-static" {

@@ -37,7 +37,7 @@ variable "gke_node_machine_type" {
 }
 
 # k8s variables
-variable gke_label {
+variable "gke_label" {
   type        = map(string)
   description = "label"
 }
