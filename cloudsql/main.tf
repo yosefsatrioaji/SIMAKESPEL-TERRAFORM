@@ -63,6 +63,7 @@ resource "google_sql_database_instance" "replica" {
 }
 
 resource "google_sql_user" "user" {
+  project = "${var.project_id}"
   depends_on = [
     google_sql_database_instance.master,
     google_sql_database_instance.replica,
