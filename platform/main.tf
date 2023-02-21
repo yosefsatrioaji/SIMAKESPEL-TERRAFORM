@@ -1,9 +1,11 @@
 module "vpc" {
   source = "../backend/vpc"
+  project_id = "${var.project_id}"
 }
 
 module "subnet" {
   source      = "../backend/subnet"
+  project_id  = "${var.project_id}"
   region      = "${var.region}"
   vpc_name     = "${module.vpc.vpc_name}"
   subnet_cidr = "${var.subnet_cidr}"
@@ -11,12 +13,14 @@ module "subnet" {
 
 module "firewall" {
   source        = "../backend/firewall"
+  project_id    = "${var.project_id}"
   vpc_name       = "${module.vpc.vpc_name}"
   ip_cidr_range = "${module.subnet.ip_cidr_range}"
 }
 
 module "cloudsql" {
   source                     = "../cloudsql"
+  project_id                 = "${var.project_id}"
   region                     = "${var.region}"
   availability_type          = "${var.availability_type}"
   sql_instance_size          = "${var.sql_instance_size}"
@@ -32,6 +36,7 @@ module "cloudsql" {
 
 module "gke" {
   source = "../gke"
+  project_id = "${var.project_id}"
   region = "${var.region}"
   gke_node_machine_type = "${var.gke_node_machine_type}"
   gke_label = "${var.gke_label}"
@@ -46,4 +51,5 @@ module "gke" {
 
 module "gcs" {
   source = "../gcs"
+  project_id = "${var.project_id}"
 }

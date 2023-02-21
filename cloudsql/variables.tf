@@ -45,3 +45,7 @@ variable "sql_user" {
 variable "sql_pass" {
   description = "Password of the host to access the database"
 }
+
+variable "project_id" {
+  description = "Project ID"
+}

@@ -41,3 +41,7 @@ variable gke_label {
   type        = map(string)
   description = "label"
 }
+
+variable "project_id" {
+  description = "Project ID"
+}
