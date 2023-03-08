@@ -9,6 +9,7 @@ resource "google_compute_firewall" "firewalli-int" {
 
   allow {
     protocol = "tcp"
+    ports    = ["22", "6443", "80", "443", "3306"]
   }
 
   allow {
@@ -30,7 +31,7 @@ resource "google_compute_firewall" "firewalli-ext" {
 
   allow {
     protocol = "tcp"
-    ports    = ["22", "6443", "80", "443"]
+    ports    = ["22", "6443", "80", "443", "3306"]
   }
 
   source_ranges = ["0.0.0.0/0"]

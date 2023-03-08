@@ -1,5 +1,6 @@
 module "vpc" {
   source     = "../backend/vpc"
+  region     = var.region
   project_id = var.project_id
 }
 

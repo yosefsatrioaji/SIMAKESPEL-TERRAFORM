@@ -20,3 +20,10 @@ resource "google_service_networking_connection" "private_vpc_network" {
   service                 = "servicenetworking.googleapis.com"
   reserved_peering_ranges = [google_compute_global_address.private-ip.name]
 }
+
+resource "google_compute_global_address" "simakespel-ip" {
+  project      = var.project_id
+  name         = "simakespel-ip-address"
+  address_type = "EXTERNAL"
+  ip_version   = "IPV4"
+}

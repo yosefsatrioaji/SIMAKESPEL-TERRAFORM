@@ -75,7 +75,7 @@ variable "sql_pass" {
 # GKE variables
 variable "gke_num_nodes" {
   default = {
-    prod = 2
+    prod = 1
     dev  = 1
   }
 
@@ -111,12 +111,12 @@ variable "gke_node_disk_size" {
 }
 
 variable "min_master_version" {
-  default     = "1.25.5-gke.2000"
+  default     = "1.25.6-gke.1000"
   description = "Number of nodes in each GKE cluster zone"
 }
 
 variable "node_version" {
-  default     = "1.25.5-gke.2000"
+  default     = "1.25.6-gke.1000"
   description = "Number of nodes in each GKE cluster zone"
 }
 
